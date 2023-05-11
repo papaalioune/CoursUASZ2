@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Cours UASZ 2</string>
+    <string name="txt_bienvenue">Bienvenue !</string>
+    <string name="txt_bienvenue_bis">Sur les cours du Master GL</string>
+    <string name="txt_connexion">Veuillez-vous connecter !</string>
+    <string name="email">Adresse mail</string>
+    <string name="password">Mot de passe</string>
+    <string name="btn_se_connecter">Se Connecter</string>
+    <string name="txt_creer_comptr">Créer un compte ?</string>
+    <string name="txt_sinscrire">S inscrire</string>
+    <string name="erreur_email">Adresse email non valide</string>
+    <string name="erreur_password">Format de mot de passe non valide</string>
+
+
+</resources>
