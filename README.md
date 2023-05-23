@@ -54,7 +54,8 @@ Pour mettre en place l’architecture MVC dans notre projet, nous allons juste a
 Dans AS, l’ajout d’un package se réalise en faisant clic droit sur le répertoire parent (ici le package com.uasz.pacisse.coursuasz), puis New -> Package. Ajouter le mot « model » à la fin de la chaine dans la petite fenêtre qui s’ouvre et tapez la touche « enter » pour valider. Répéter le même procédé pour ajouter le sous package « controler » au même niveau que « model ». 
 La création du projet s’est accompagnée de la création d’une activité principale (MainActivity) et de son interface associée (activity_main). Nous allons considérer MainActivity comme étant l’écran d’accueil qui permet à un utilisateur de se connecter à l’application.
 Pour respecter l’architecture MVC, nous devons déplacer MainActivity dans le package controler. Pour cela, il faut faire un clic-maintient-déposer, puis Refractor.
-Le modèle de l’application (c’est-à-dire les différentes classes métier de l’application, du répertoire model) est constitué des classes suivantes :
+#### 4.2 Développement du modèle de l'application
+Le modèle de l’application (c’est-à-dire les différentes classes métier de l’application, du répertoire model) est constitué des classes citées plus haut dans la section 3.1, des différentes classes permettant d'interrroger l'API et de traiter les données recueillies (sous packages "webservices" du package "model") et des classes utilitaires du sous package "utilities" dont la classe "Constantes" (), la classe "JsonToObjectConverter" () et la classe "DataConverter" (). Tout le modèle de l'application (contenu du package "model") est ici (:
 
 
 
