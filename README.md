@@ -8,7 +8,18 @@ Nous supposons pour cela que l’UFR ST dispose déjà d’une application de ge
 ### 2. Fonctionnalités de l'application
 #### 2.1 Connexion
 A son lancement, l’application présente une page d’accueil pour permettre à un utilisateur inscrit de se connecter sur la plateforme. Cette page doit comporter un logo (celui de l’UASZ) ; un message d’accueil ; deux champs de login (email) et de mot de passe et un bouton pour se connecter ; et un lien pour se rediriger vers la page de création de compte.
+
 ![image](https://github.com/papaalioune/CoursUASZ2/assets/44668416/32d65961-1196-4672-ba47-23667ed3fb81)
+
 #### 2.2 Création de compte
+Il s’agit d’un écran qui permet de créer un compte utilisateur dans notre application. Il comporte entre autres, les champs suivants : Prénom, Nom, Référence (numéro d’identification de l’étudiant UASZ), Email, Mot de passe, classe (L3 Info par exemple).
+
+![image](https://github.com/papaalioune/CoursUASZ2/assets/44668416/b3114255-a7a1-43f3-abcc-e463022d012e)
+
 #### 2.3 Visualisation d'emploi du temps
+Quand un utilisateur se connecte sur l’écran d’accueil, le système doit vérifier et récupérer auprès de l’application AGET, l’emploi du temps de l’utilisateur. Celui-ci est ensuite redirigé vers l’écran d’affichage de son emploi du temps. Cet écran affiche l’emploi du temps sous forme de tableau. Chaque cellule de ce tableau correspond à une heure de cours. S’il y’a cours à cette heure, la cellule est coloriée en jaune et rempli avec le code du cours. Au clic sur la cellule, les détails du cours sont affichés en bas du tableau de l’emploi du temps.
+
+![image](https://github.com/papaalioune/CoursUASZ2/assets/44668416/976ad4ce-989f-42b5-9e12-187b64f43ea6)
+
+
 
