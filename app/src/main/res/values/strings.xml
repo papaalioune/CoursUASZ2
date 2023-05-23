@@ -10,6 +10,7 @@
     <string name="txt_sinscrire">S inscrire</string>
     <string name="erreur_email">Adresse email non valide</string>
     <string name="erreur_password">Format de mot de passe non valide</string>
+    <string name="erreur_internet_off">Attention! vous n êtes pas connecté à internet</string>
 
 
 </resources>

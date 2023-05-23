@@ -1,11 +1,12 @@
 package com.uasz.pacisse.coursuasz2.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Créé par Dr Cissé, le 16/03/2023 à 09:43
  */
-public class Enseignant {
+public class Enseignant implements Serializable {
     private int identifiantEnseignant;
     private String matriculeEnseignant;
     private String nomEnseignant;
@@ -23,6 +24,11 @@ public class Enseignant {
 
     public Enseignant(String matriculeEnseignant, String nomEnseignant, String prenomEnseignant) {
         this.matriculeEnseignant = matriculeEnseignant;
+        this.nomEnseignant = nomEnseignant;
+        this.prenomEnseignant = prenomEnseignant;
+    }
+
+    public Enseignant(String nomEnseignant, String prenomEnseignant) {
         this.nomEnseignant = nomEnseignant;
         this.prenomEnseignant = prenomEnseignant;
     }

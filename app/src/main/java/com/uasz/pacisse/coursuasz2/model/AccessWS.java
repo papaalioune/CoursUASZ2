@@ -10,7 +10,8 @@ import java.util.List;
 /**
  * Créé par Dr Cissé, le 09/05/2023 à 08:46
  */
-public class AccessWS {
+
+public class AccessWS {/*
     private List<Cours> quelquesCours;
     private List<SalleDeClasse> quelquesSallesDeClasses;
     private List<Enseignant> quelquesEnseignants;
@@ -146,5 +147,5 @@ public class AccessWS {
             if (quelquesCours.get(i).getClasse().getNomClasse().equals(etudiant.getClasse().getNomClasse()))
                 cours.add(quelquesCours.get(i));
         return cours;
-    }
+    }*/
 }

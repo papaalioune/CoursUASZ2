@@ -4,20 +4,30 @@ import static com.basgeekball.awesomevalidation.ValidationStyle.COLORATION;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
-import com.basgeekball.awesomevalidation.ValidationStyle;
 import com.uasz.pacisse.coursuasz2.R;
 import com.uasz.pacisse.coursuasz2.model.AccessWS;
-import com.uasz.pacisse.coursuasz2.model.Etudiant;
+import com.uasz.pacisse.coursuasz2.model.JsonToObjectConverter;
 import com.uasz.pacisse.coursuasz2.utilitaire.Constantes;
+import com.uasz.pacisse.coursuasz2.model.webservices.OperationsGEDT;
+import com.uasz.pacisse.coursuasz2.model.webservices.RetoursOperationsGEDT;
+import com.uasz.pacisse.coursuasz2.model.webservices.ServiceInternet;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText mEmailConnexionInput;
@@ -30,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private AccessWS accessWS;
 
+    private ServiceInternet mServiceInternet;
+    private OperationsGEDT mOperationsGEDT;
+    private RetoursOperationsGEDT mRetoursOperationsGEDT;
+
+    private JsonToObjectConverter mJsonToObjectConverter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +53,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         accessWS = new AccessWS();
 
+        mServiceInternet = new ServiceInternet();
+        mOperationsGEDT = new OperationsGEDT();
+        mJsonToObjectConverter = new JsonToObjectConverter();
+
         initView();
 
         addValidationToViews();
+
     }
 
     private void initView() {
@@ -60,7 +81,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.activity_main_connectionButton:
                 if (awesomeValidation.validate()) {
-                    System.out.println("Tout est vlidé");
+                    if (mServiceInternet.connexionDisponible(getApplicationContext())) {
+                        mRetoursOperationsGEDT = mOperationsGEDT.verifier_etudiant(mEmailConnexionInput.getText().toString(), mMotDePassConnexionInput.getText().toString(), MainActivity.this);
+                        if (mRetoursOperationsGEDT.getValeurRetourOperationsGEDT() == Constantes.ValeurRetourOperationsGEDT.VALEUR_SUCCESS){
+                            //Redirection vers l'affichage de l'emploi du temps en passant le jsonArray à la nouvelle intend
+                            Intent afficherEmploiActivity = new Intent(MainActivity.this, AfficherEmploiDuTempsActivity.class);
+                            System.out.println(mRetoursOperationsGEDT.getDataAsArray());
+                            afficherEmploiActivity.putExtra("listeCours", (Serializable) mJsonToObjectConverter.liste_cours_converter(mRetoursOperationsGEDT.getDataAsArray()));
+                            startActivity(afficherEmploiActivity);
+
+                        } else{
+                            Toast.makeText(MainActivity.this,
+                                    mRetoursOperationsGEDT.getMessageRetourOperationsGEDT(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    } else{
+                        Toast.makeText(MainActivity.this,
+                                R.string.erreur_internet_off,
+                                Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
         }

@@ -1,11 +1,12 @@
 package com.uasz.pacisse.coursuasz2.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Créé par Dr Cissé, le 16/03/2023 à 09:58
  */
-public class SalleDeClasse {
+public class SalleDeClasse implements Serializable {
     private int identifiantSalleDeClasse;
     private String codeSalleDeClasse;
     private String nomSalleDeClasse;
@@ -21,6 +22,10 @@ public class SalleDeClasse {
 
     public SalleDeClasse(String codeSalleDeClasse, String nomSalleDeClasse) {
         this.codeSalleDeClasse = codeSalleDeClasse;
+        this.nomSalleDeClasse = nomSalleDeClasse;
+    }
+
+    public SalleDeClasse(String nomSalleDeClasse) {
         this.nomSalleDeClasse = nomSalleDeClasse;
     }
 

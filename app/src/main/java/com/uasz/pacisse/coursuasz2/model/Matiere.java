@@ -1,11 +1,12 @@
 package com.uasz.pacisse.coursuasz2.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Créé par Dr Cissé, le 16/03/2023 à 09:53
  */
-public class Matiere {
+public class Matiere implements Serializable {
     private int identifiantMatiere;
     private String codeMatiere;
     private String libelleMatiere;

@@ -1,12 +1,13 @@
 package com.uasz.pacisse.coursuasz2.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Objects;
 
 /**
  * Créé par Dr Cissé, le 09/05/2023 à 08:49
  */
-public class Etudiant {
+public class Etudiant implements Serializable {
     private int id;
     private String reference;
     private String sexe;
@@ -26,6 +27,14 @@ public class Etudiant {
         this.prenom = prenom;
         this.nom = nom;
         this.dateNaissance = dateNaissance;
+        this.classe = classe;
+        this.email = email;
+        this.password = password;
+    }
+
+    public Etudiant(String prenom, String nom, Classe classe, String email, String password) {
+        this.prenom = prenom;
+        this.nom = nom;
         this.classe = classe;
         this.email = email;
         this.password = password;

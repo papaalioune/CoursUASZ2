@@ -40,8 +40,8 @@ public class TableauEmploiDuTemps {
     public void ajouterCours(Cours cours){
         for (int i = 0; i < leTableauDEmploiDuTemps.size(); i++) {
             if (leTableauDEmploiDuTemps.get(i).getJour().equalsIgnoreCase(cours.getJour().toString()) &&
-                    ((leTableauDEmploiDuTemps.get(i).getHeureDebut() >= (cours.getHeureDebut()))) &&
-                    ((leTableauDEmploiDuTemps.get(i).getHeureDebut() < (cours.getHeureFin())))){
+                    ((leTableauDEmploiDuTemps.get(i).getHeureDebut() >= (cours.getHeureDebut().getHeure()))) &&
+                    ((leTableauDEmploiDuTemps.get(i).getHeureDebut() < (cours.getHeureFin().getHeure())))){
                 leTableauDEmploiDuTemps.get(i).setCours(cours);
             }
         }

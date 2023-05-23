@@ -1,23 +1,27 @@
 package com.uasz.pacisse.coursuasz2.model;
 
+import com.uasz.pacisse.coursuasz2.utilitaire.Constantes;
+
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Créé par Dr Cissé, le 16/03/2023 à 10:04
  */
-public class Cours {
-    private Jours jour;
-    private int HeureDebut;
-    private int HeureFin;
+public class Cours implements Serializable {
+    private Constantes.Jours jour;
+    private HeureDeCours HeureDebut;
+    private HeureDeCours HeureFin;
     private SalleDeClasse salle;
     private Enseignant enseignant;
     private Classe classe;
     private Matiere matiere;
+    private TypeDeCours typeDeCours;
 
     public Cours() {
     }
 
-    public Cours(Jours jour, int heureDebut, int heureFin, SalleDeClasse salle, Enseignant enseignant, Classe classe, Matiere matiere) {
+    public Cours(Constantes.Jours jour, HeureDeCours heureDebut, HeureDeCours heureFin, SalleDeClasse salle, Enseignant enseignant, Classe classe, Matiere matiere) {
         this.jour = jour;
         HeureDebut = heureDebut;
         HeureFin = heureFin;
@@ -27,27 +31,45 @@ public class Cours {
         this.matiere = matiere;
     }
 
-    public Jours getJour() {
+    public Cours(Constantes.Jours jour, HeureDeCours heureDebut, HeureDeCours heureFin, SalleDeClasse salle, Enseignant enseignant, Matiere matiere, TypeDeCours typeDeCours) {
+        this.jour = jour;
+        HeureDebut = heureDebut;
+        HeureFin = heureFin;
+        this.salle = salle;
+        this.enseignant = enseignant;
+        this.matiere = matiere;
+        this.typeDeCours = typeDeCours;
+    }
+
+    public TypeDeCours getTypeDeCours() {
+        return typeDeCours;
+    }
+
+    public void setTypeDeCours(TypeDeCours typeDeCours) {
+        this.typeDeCours = typeDeCours;
+    }
+
+    public Constantes.Jours getJour() {
         return jour;
     }
 
-    public void setJour(Jours jour) {
+    public void setJour(Constantes.Jours jour) {
         this.jour = jour;
     }
 
-    public int getHeureDebut() {
+    public HeureDeCours getHeureDebut() {
         return HeureDebut;
     }
 
-    public void setHeureDebut(int heureDebut) {
+    public void setHeureDebut(HeureDeCours heureDebut) {
         HeureDebut = heureDebut;
     }
 
-    public int getHeureFin() {
+    public HeureDeCours getHeureFin() {
         return HeureFin;
     }
 
-    public void setHeureFin(int heureFin) {
+    public void setHeureFin(HeureDeCours heureFin) {
         HeureFin = heureFin;
     }
 
@@ -96,7 +118,5 @@ public class Cours {
         return Objects.hash(getJour(), getHeureDebut(), getHeureFin(), getSalle(), getEnseignant(), getClasse(), getMatiere());
     }
 
-    public enum Jours{
-        LUNDI, MARDI, MERCREDI, JEUDI, VENDREDI, SAMEDI
-    }
+
 }
