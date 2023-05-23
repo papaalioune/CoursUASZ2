@@ -21,5 +21,34 @@ Quand un utilisateur se connecte sur l’écran d’accueil, le système doit v�
 
 ![image](https://github.com/papaalioune/CoursUASZ2/assets/44668416/976ad4ce-989f-42b5-9e12-187b64f43ea6)
 
+### 3. Premiers pas dans la resolution du problème
+#### 3.1 Modélisation du problème
+Un Cours est défini par : 
+- une matière (définie par un code – Dev Mob par exemple – et un intitulée – Développement Mobile par exemple);
+- un type de cours (défini par un ocde - CM par exemple- et un libellé - Cours magistral par exemple);
+- une classe (définie par un code - 2I par exemple - et un nom - Ingénieurie informatique par exemple);
+- un enseignant (défini par un nom et un prenom);
+- d’une salle de classe (définie par un nom - Ex : C003);
+- d’un jour (Ex : Lundi);
+- d’une heure de début et d'une heure de fin de types "Heure de cours" (défini par une heure (entier) et une minute (entier)).
+
+Un Emploi du temps n’est ici rien d’autre qu’un ensemble de Cours donnant une répartition des différents enseignements dans le temps et dans l’espace (les salles de classes). Attention : il est important de signaler qu’un emploi du temps ici n’est pas le tableau graphique qui donne une représentation visuelle.
+Un Tableau d’Emploi du Temps est un tableau constitué d’un ensemble de colonnes (les différents jours de cours : Lundi à Samedi) ; d’un ensemble de lignes (les différentes heures de cours : 8h à 13h et 15h à 20h) et d’un ensemble de Cellules ou cases correspondant chacune à un Cours d’une classe donnée.
+Une Cellule d’un Tableau d’Emploi du Temps est donc un objet qui se réfère (qui porte la référence) à un cours donné.
+#### 3.2 Aperçu sur l'architecture MVC
+Dans le souci de faciliter le développement logiciel et la compréhension des codes, il existe plusieurs conventions ou des méthodes de bonne pratique. Parmi ces conventions, il y’a l’architecture MVC pour Model-View-Controller (ou Modèle-Vue-Controller en français).
+L'architecture MVC consiste à découper son code pour qu'il appartienne à l'une des trois composantes du MVC. Lorsque vous créez une nouvelle classe ou un nouveau fichier, vous devez donc savoir à quelle composante il appartient :
+-	Modèle : contient les données de l'application et la logique métier. Par exemple, les Cours et les Emplois du temps constituent, pour le problème que nous posons ici, le « métier » de l’application. La composante modèle n'a aucune connaissance de l'interface graphique. Dans notre application, elle regroupera l'ensemble des données sur les cours et les emplois du temps. Nous créons un package nommé « model » pour cela et y mettre tout le modèle (les différentes classes).
+-	Vue : contient tout ce qui est visible à l'écran et qui propose une interaction avec l'utilisateur. Par exemple, les boutons, les images, les zones de saisie, etc. Dans notre application, cette composante est définie par le dossier layout (qui contiendra les fichiers xml correspondant aux interfaces des activités).
+-	Contrôleur : c'est la "colle" entre la vue et le modèle, qui gère également la logique de l'application. Le contrôleur permet de réagir aux interactions de l'utilisateur et de lui présenter les données qu'il demande. Et ces données, où les récupère-t-il ? Dans le modèle bien entendu ! Dans notre application, cela correspond aux différentes activités que nous aurons à développer). Nous pourrions ajouter un package nommé « controller » et y mettre toutes les activités de l’application.
+
+#### 3.3 Exemple d'application du modèle MVC
+Les écrans des téléphones étant petits, il nous sera difficile de mettre toutes les informations de tous les Cours dans les Cellules du Tableau d’emploi du temps. Nous allons donc procéder ainsi : une Cellule de Cours sera coloriée en jaune avec seulement le code de la matière concernée. On permet ainsi à l’utilisateur de cliquer sur une Cellule et de visualiser les détails du Cours en bas de du Tableau d’emploi du temps. Avec MVC, ce processus est matérialisé dans l’image suivant :
+
+![image](https://github.com/papaalioune/CoursUASZ2/assets/44668416/6402d448-2bec-4f8a-9154-c6d6800f4aa1)
+
+### 4. Développement du cas d'application
+
+
 
 
