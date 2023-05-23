@@ -55,7 +55,7 @@ Dans AS, l’ajout d’un package se réalise en faisant clic droit sur le répe
 La création du projet s’est accompagnée de la création d’une activité principale (MainActivity) et de son interface associée (activity_main). Nous allons considérer MainActivity comme étant l’écran d’accueil qui permet à un utilisateur de se connecter à l’application.
 Pour respecter l’architecture MVC, nous devons déplacer MainActivity dans le package controler. Pour cela, il faut faire un clic-maintient-déposer, puis Refractor.
 #### 4.2 Développement du modèle de l'application
-Le modèle de l’application (c’est-à-dire les différentes classes métier de l’application, du répertoire model) est constitué des classes citées plus haut dans la section 3.1, des différentes classes permettant d'interrroger l'API et de traiter les données recueillies (sous packages "webservices" du package "model") et des classes utilitaires du sous package "utilities" dont la classe "Constantes" (), la classe "JsonToObjectConverter" () et la classe "DataConverter" (). Tout le modèle de l'application (contenu du package "model") est ici (:
+Le modèle de l’application (c’est-à-dire les différentes classes métier de l’application, du répertoire model) est constitué des classes citées plus haut dans la section 3.1, des différentes classes permettant d'interrroger l'API et de traiter les données recueillies (sous packages "webservices" du package "model") et des classes utilitaires du sous package "utilities" dont la classe "Constantes" (), la classe "JsonToObjectConverter" () et la classe "DataConverter" (). Tout le modèle de l'application (contenu du package "model") est ici: https://github.com/papaalioune/CoursUASZ2/tree/master/app/src/main/java/com/uasz/pacisse/coursuasz2/model
 
 
 
