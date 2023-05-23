@@ -1,4 +1,4 @@
-package com.uasz.pacisse.coursuasz2.utilitaire;
+package com.uasz.pacisse.coursuasz2.model.utilitaire;
 
 /**
  * Créé par Dr Cissé, le 09/05/2023 à 08:58

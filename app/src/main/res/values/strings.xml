@@ -12,5 +12,39 @@
     <string name="erreur_password">Format de mot de passe non valide</string>
     <string name="erreur_internet_off">Attention! vous n êtes pas connecté à internet</string>
 
+    <string name="titre_creer_compte">Création de compte</string>
 
+    <string name="texte_homme">HOMME</string>
+    <string name="texte_femme">FEMME</string>
+    <string name="texte_oui">OUI</string>
+    <string name="texte_non">NON</string>
+    <string name="texte_de">DE</string>
+    <string name="texte_a">A</string>
+    <string name="texte_avec">Avec</string>
+    <string name="texte_salle">Salle : </string>
+    <string name="texte_confirmer_exit">Êtes-vous sûr de vouloir quitter ?</string>
+    <string name="texte_exit">FERMETURE</string>
+    <string name="texte_deconnexion">DECONNEXION</string>
+
+    <string name="erreur_prenom">Entrez un prénom valide</string>
+    <string name="erreur_nom">Entrez un nom valide</string>
+    <string name="erreur_reference">Entrez une référence valide</string>
+    <string name="erreur_classe">Choisissez une classe!</string>
+    <string name="erreur_date_naissance">Entrez une date de naissance</string>
+    <string name="erreur_genre">Selectionnez un genre</string>
+
+    <string name="message_compte_cree_avec_succes">Compte créé avec succès. Veuillez vous connecter !</string>
+    <string name="message_compte_non_cree">Ce compte existe déjà et peut pas être recréé !</string>
+    <string name="message_connexion_error">Adresse mail ou mot de passe invalide !</string>
+
+    <string name="titre_choix_classe">Choisir votre classe</string>
+    <string name="prenom">Prénom</string>
+    <string name="nom">Nom</string>
+    <string name="reference">Référence</string>
+    <string name="classe">Classe</string>
+    <string name="date_naissance">Date de naissance</string>
+    <string name="creer_compte">Créer un compte ? </string>
+    <string name="inscrire">S inscrire</string>
+    <string name="btn_creer_compte">CREER COMPTE</string>
+    <string name="btn_fermer">FERMER</string>
 </resources>

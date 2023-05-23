@@ -1,6 +1,6 @@
 package com.uasz.pacisse.coursuasz2.model;
 
-import com.uasz.pacisse.coursuasz2.utilitaire.Constantes;
+import com.uasz.pacisse.coursuasz2.model.utilitaire.Constantes;
 
 import java.io.Serializable;
 import java.util.Objects;

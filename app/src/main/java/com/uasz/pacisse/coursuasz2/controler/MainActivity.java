@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -17,15 +16,10 @@ import android.widget.Toast;
 
 import com.basgeekball.awesomevalidation.AwesomeValidation;
 import com.uasz.pacisse.coursuasz2.R;
-import com.uasz.pacisse.coursuasz2.model.AccessWS;
-import com.uasz.pacisse.coursuasz2.model.JsonToObjectConverter;
-import com.uasz.pacisse.coursuasz2.utilitaire.Constantes;
+import com.uasz.pacisse.coursuasz2.model.utilitaire.JsonToObjectConverter;
+import com.uasz.pacisse.coursuasz2.model.utilitaire.Constantes;
 import com.uasz.pacisse.coursuasz2.model.webservices.OperationsGEDT;
 import com.uasz.pacisse.coursuasz2.model.webservices.RetoursOperationsGEDT;
-import com.uasz.pacisse.coursuasz2.model.webservices.ServiceInternet;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.Serializable;
 
@@ -38,9 +32,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     /* *** objet de la validation *** */
     private AwesomeValidation awesomeValidation;
 
-    private AccessWS accessWS;
 
-    private ServiceInternet mServiceInternet;
+    //private ServiceInternet mServiceInternet;
     private OperationsGEDT mOperationsGEDT;
     private RetoursOperationsGEDT mRetoursOperationsGEDT;
 
@@ -51,9 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        accessWS = new AccessWS();
 
-        mServiceInternet = new ServiceInternet();
+        //mServiceInternet = new ServiceInternet();
         mOperationsGEDT = new OperationsGEDT();
         mJsonToObjectConverter = new JsonToObjectConverter();
 
@@ -77,16 +69,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_main_inscriptionLien:
-                System.out.println("Clic sur le lien d'inscription");
+                Intent creerCompteActivit = new Intent(MainActivity.this, CreerCompteActivity.class);
+                startActivity(creerCompteActivit);
                 break;
             case R.id.activity_main_connectionButton:
                 if (awesomeValidation.validate()) {
-                    if (mServiceInternet.connexionDisponible(getApplicationContext())) {
+                    if (mOperationsGEDT.serviceInternet.connexionDisponible(getApplicationContext())) {
                         mRetoursOperationsGEDT = mOperationsGEDT.verifier_etudiant(mEmailConnexionInput.getText().toString(), mMotDePassConnexionInput.getText().toString(), MainActivity.this);
                         if (mRetoursOperationsGEDT.getValeurRetourOperationsGEDT() == Constantes.ValeurRetourOperationsGEDT.VALEUR_SUCCESS){
                             //Redirection vers l'affichage de l'emploi du temps en passant le jsonArray à la nouvelle intend
                             Intent afficherEmploiActivity = new Intent(MainActivity.this, AfficherEmploiDuTempsActivity.class);
-                            System.out.println(mRetoursOperationsGEDT.getDataAsArray());
                             afficherEmploiActivity.putExtra("listeCours", (Serializable) mJsonToObjectConverter.liste_cours_converter(mRetoursOperationsGEDT.getDataAsArray()));
                             startActivity(afficherEmploiActivity);
 

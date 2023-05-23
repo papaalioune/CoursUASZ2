@@ -1,6 +1,13 @@
-package com.uasz.pacisse.coursuasz2.model;
+package com.uasz.pacisse.coursuasz2.model.utilitaire;
 
-import com.uasz.pacisse.coursuasz2.utilitaire.Constantes;
+import com.uasz.pacisse.coursuasz2.model.Classe;
+import com.uasz.pacisse.coursuasz2.model.Cours;
+import com.uasz.pacisse.coursuasz2.model.Enseignant;
+import com.uasz.pacisse.coursuasz2.model.HeureDeCours;
+import com.uasz.pacisse.coursuasz2.model.Matiere;
+import com.uasz.pacisse.coursuasz2.model.NiveauDeClasse;
+import com.uasz.pacisse.coursuasz2.model.SalleDeClasse;
+import com.uasz.pacisse.coursuasz2.model.TypeDeCours;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,5 +49,25 @@ public class JsonToObjectConverter {
             }
         }
         return coursList;
+    }
+
+    public List<Classe> liste_classes_converter(JSONArray listeClassesAsJSonArray){
+        List<Classe> classesList = new ArrayList<>();
+        for (int i = 0 ; i < listeClassesAsJSonArray.length() ; i++){
+            try {
+                JSONObject uneClasse = listeClassesAsJSonArray.getJSONObject(i);
+                JSONObject niveauDeLaClasse = uneClasse.getJSONObject(Constantes.NomsParametresGEDT.PRAM_NIVEAU_CLASSE);
+                String codeDeLaClasse = uneClasse.getString(Constantes.NomsParametresGEDT.PRAM_CODE_CLASSE);
+                String nomDeLaClasse = uneClasse.getString(Constantes.NomsParametresGEDT.PRAM_NOM_CLASSE);
+
+                NiveauDeClasse niveau = new NiveauDeClasse(niveauDeLaClasse.getString(Constantes.NomsParametresGEDT.PRAM_CODE_NIVEAU), niveauDeLaClasse.getString(Constantes.NomsParametresGEDT.PRAM_NOM_NIVEAU));
+
+                classesList.add(new Classe(niveau, nomDeLaClasse));
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        return classesList;
     }
 }

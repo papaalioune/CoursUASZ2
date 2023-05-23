@@ -1,4 +1,4 @@
-package com.uasz.pacisse.coursuasz2.utilitaire;
+package com.uasz.pacisse.coursuasz2.model.utilitaire;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

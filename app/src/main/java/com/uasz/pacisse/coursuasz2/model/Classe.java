@@ -7,22 +7,22 @@ import java.util.Objects;
  * Créé par Dr Cissé, le 16/03/2023 à 09:32
  */
 public class Classe implements Serializable {
-    private String niveauClasse;
+    private NiveauDeClasse niveauClasse;
     private String nomClasse;
 
     public Classe() {
     }
 
-    public Classe(String niveauClasse, String nomClasse) {
+    public Classe(NiveauDeClasse niveauClasse, String nomClasse) {
         this.niveauClasse = niveauClasse;
         this.nomClasse = nomClasse;
     }
 
-    public String getNiveauClasse() {
+    public NiveauDeClasse getNiveauClasse() {
         return niveauClasse;
     }
 
-    public void setNiveauClasse(String niveauClasse) {
+    public void setNiveauClasse(NiveauDeClasse niveauClasse) {
         this.niveauClasse = niveauClasse;
     }
 

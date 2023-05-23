@@ -1,12 +1,5 @@
 package com.uasz.pacisse.coursuasz2.model;
 
-import com.uasz.pacisse.coursuasz2.utilitaire.DataConverter;
-
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 /**
  * Créé par Dr Cissé, le 09/05/2023 à 08:46
  */

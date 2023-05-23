@@ -6,8 +6,6 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.util.Log;
 
-import com.uasz.pacisse.coursuasz2.utilitaire.Constantes;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
