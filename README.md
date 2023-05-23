@@ -48,6 +48,13 @@ Les écrans des téléphones étant petits, il nous sera difficile de mettre tou
 ![image](https://github.com/papaalioune/CoursUASZ2/assets/44668416/6402d448-2bec-4f8a-9154-c6d6800f4aa1)
 
 ### 4. Développement du cas d'application
+#### 4.1 4.1 -  Création du projet et mise en place de l’architecture MVC
+Nous allons créer un « projet à Empty Activity » appelé « Cours UASZ » avec comme Package name « com.uasz.pacisse.coursuasz » (remplacer pacisse par votre nom par exemple).
+Pour mettre en place l’architecture MVC dans notre projet, nous allons juste ajouter les packages suivants : model (pour contenir le modèle de l’application, c’est-à-dire les différentes classes de notre application) ; controler (pour contenir les différents contrôleurs, c’est-à-dire les différentes activités) et normalement le package view (sauf que nous n’avons pas besoin de l’ajouter, puisque le répertoire res/layout joue déjà le ce rôle).
+Dans AS, l’ajout d’un package se réalise en faisant clic droit sur le répertoire parent (ici le package com.uasz.pacisse.coursuasz), puis New -> Package. Ajouter le mot « model » à la fin de la chaine dans la petite fenêtre qui s’ouvre et tapez la touche « enter » pour valider. Répéter le même procédé pour ajouter le sous package « controler » au même niveau que « model ». 
+La création du projet s’est accompagnée de la création d’une activité principale (MainActivity) et de son interface associée (activity_main). Nous allons considérer MainActivity comme étant l’écran d’accueil qui permet à un utilisateur de se connecter à l’application.
+Pour respecter l’architecture MVC, nous devons déplacer MainActivity dans le package controler. Pour cela, il faut faire un clic-maintient-déposer, puis Refractor.
+Le modèle de l’application (c’est-à-dire les différentes classes métier de l’application, du répertoire model) est constitué des classes suivantes :
 
 
 
