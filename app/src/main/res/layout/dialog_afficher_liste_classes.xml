@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/dialog_afficher_beneficiaireToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:gravity="center_horizontal"
+        android:layout_alignParentTop="true"
+        android:padding="16dp"
+        android:background="@color/uasz"
+        android:text="Choix d'un bénéficiaire"
+        android:textColor="@color/white"
+        android:textSize="@dimen/dimen16" />
+    <ListView
+        android:id="@+id/dialog_list_classesView"
+        android:background="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/dialog_liste_classes_cancelButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ligne_angle"
+        android:textSize="16dp"
+        android:textColor="#fff"
+        android:gravity="center"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:padding="@dimen/dimen5"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/dimen10"
+        android:layout_marginBottom="@dimen/dimen10"
+        android:text="Fermer"/>
+
+</LinearLayout>

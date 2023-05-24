@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/dimen10"
+    android:paddingLeft="@dimen/dimen5"
+    android:paddingRight="@dimen/dimen5"
+    android:paddingTop="@dimen/dimen10">
+
+    <ImageView
+        android:id="@+id/mImageOperateur"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="@dimen/dimen20"
+        android:src="@drawable/logo_uasz"
+        android:contentDescription="Logo Cauri"/>
+
+    <TextView
+        android:id="@+id/mNiveauCours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/mImageOperateur"
+        android:layout_toRightOf="@+id/mImageOperateur"
+        android:maxLines="1"
+        android:text="April 12, 2013"
+        android:textSize="@dimen/dimen16" />
+
+    <TextView
+        android:id="@+id/mNomCours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="This is a good Post, I hope it will have 2 lines."
+        android:textIsSelectable="false"
+        android:textSize="@dimen/dimen10" />
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/ic_baseline_keyboard_arrow_right_24"/>
+
+</RelativeLayout>
