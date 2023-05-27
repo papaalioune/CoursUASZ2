@@ -77,4 +77,9 @@ public class Enseignant implements Serializable {
     public int hashCode() {
         return Objects.hash(getIdentifiantEnseignant(), getMatriculeEnseignant(), getNomEnseignant(), getPrenomEnseignant());
     }
+
+    @Override
+    public String toString() {
+        return prenomEnseignant + " " + nomEnseignant;
+    }
 }

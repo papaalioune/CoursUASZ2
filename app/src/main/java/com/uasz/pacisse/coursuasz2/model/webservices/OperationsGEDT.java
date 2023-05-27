@@ -3,6 +3,7 @@ package com.uasz.pacisse.coursuasz2.model.webservices;
 import android.app.Activity;
 import android.os.AsyncTask;
 
+import com.uasz.pacisse.coursuasz2.model.Etudiant;
 import com.uasz.pacisse.coursuasz2.model.utilitaire.Constantes;
 
 import java.util.HashMap;
@@ -45,6 +46,14 @@ public class OperationsGEDT {
         return this.mRetoursOperationsGEDT;
     }
 
+    public RetoursOperationsGEDT ajouterEtudiant(Etudiant etudiant){
+        new AjouterEtudiantAsyncTask(etudiant).execute();
+        while (this.mRetoursOperationsGEDT==null){
+            //On attend jusqua la fin de l'opération de vérification par GEDT. Penser à afficher un message ici
+        }
+        return this.mRetoursOperationsGEDT;
+    }
+
 
 
 
@@ -59,30 +68,6 @@ public class OperationsGEDT {
          public VerifierEtudiantAsyncTask(String mailEtudiant, String pwdEtudiant, Activity activity) {
              this.mailEtudiant = mailEtudiant;
              this.pwdEtudiant = pwdEtudiant;
-             this.activity = activity;
-         }
-
-         public String getMailEtudiant() {
-             return mailEtudiant;
-         }
-
-         public void setMailEtudiant(String mailEtudiant) {
-             this.mailEtudiant = mailEtudiant;
-         }
-
-         public String getPwdEtudiant() {
-             return pwdEtudiant;
-         }
-
-         public void setPwdEtudiant(String pwdEtudiant) {
-             this.pwdEtudiant = pwdEtudiant;
-         }
-
-         public Activity getActivity() {
-             return activity;
-         }
-
-         public void setActivity(Activity activity) {
              this.activity = activity;
          }
 
@@ -115,14 +100,6 @@ public class OperationsGEDT {
             this.activity = activity;
         }
 
-        public Activity getActivity() {
-            return activity;
-        }
-
-        public void setActivity(Activity activity) {
-            this.activity = activity;
-        }
-
         @Override
         protected String doInBackground(String... strings) {
             RetoursOperationsGEDT retoursOperationsGEDT = serviceInternet.requetteHttp(Constantes.UrlMappingGEDT.WS_LISTE_CLASSES, "GET", null);
@@ -135,6 +112,31 @@ public class OperationsGEDT {
                     mRetoursOperationsGEDT = new RetoursOperationsGEDT(Constantes.ValeurRetourOperationsGEDT.VALEUR_SUCCESS, Constantes.MessageRetourOperationsGEDT.MESSAGE_SUCCES, retoursOperationsGEDT.getDataAsArray());;
                 }
             }
+            return null;
+        }
+    }
+
+    private class AjouterEtudiantAsyncTask extends AsyncTask<String, String, String> {
+        private Etudiant etudiant;
+
+        public AjouterEtudiantAsyncTask(Etudiant etudiant) {
+            this.etudiant = etudiant;
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            Map<String, String> httpParams = new HashMap<>();
+            //Populating request parameters
+            httpParams.put(Constantes.NomsParametresGEDT.PRAM_NOM_ETUDIANT, this.etudiant.getNom());
+            httpParams.put(Constantes.NomsParametresGEDT.PRAM_PRENOM_ETUDIANT, this.etudiant.getPrenom());
+            httpParams.put(Constantes.NomsParametresGEDT.PRAM_MAIL_ETUDIANT, this.etudiant.getEmail());
+            httpParams.put(Constantes.NomsParametresGEDT.PRAM_PWD_ETUDIANT, this.etudiant.getPassword());
+            httpParams.put(Constantes.NomsParametresGEDT.PRAM_CODE_CLASSE, this.etudiant.getClasse().getCodeClasse());
+            httpParams.put(Constantes.NomsParametresGEDT.PRAM_CODE_NIVEAU, this.etudiant.getClasse().getNiveauClasse().getCode_niveau());
+
+            RetoursOperationsGEDT retoursOperationsGEDT = serviceInternet.requetteHttp(Constantes.UrlMappingGEDT.WS_AJOUT_ETUDIANT, "POST", httpParams);
+            System.out.println("rrrrrrrrrrrrrrrrrrr " + retoursOperationsGEDT.getValeurRetourOperationsGEDT());
+            mRetoursOperationsGEDT = new RetoursOperationsGEDT(retoursOperationsGEDT.getValeurRetourOperationsGEDT(), "", null);
             return null;
         }
     }

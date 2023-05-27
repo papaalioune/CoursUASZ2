@@ -9,35 +9,40 @@
     android:paddingTop="@dimen/dimen10">
 
     <ImageView
-        android:id="@+id/mImageOperateur"
         android:layout_width="50dp"
         android:layout_height="40dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="@dimen/dimen20"
         android:src="@drawable/logo_uasz"
-        android:contentDescription="Logo Cauri"/>
-
-    <TextView
-        android:id="@+id/mNiveauCours"
+        android:contentDescription="Logo UASZ"/>
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/mImageOperateur"
-        android:layout_toRightOf="@+id/mImageOperateur"
-        android:maxLines="1"
-        android:text="April 12, 2013"
-        android:textSize="@dimen/dimen16" />
+        android:orientation="vertical"
+        android:layout_marginLeft="@dimen/dimen80">
+        <TextView
+            android:id="@+id/mNiveauClasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/mImageOperateur"
+            android:layout_toRightOf="@+id/mImageOperateur"
+            android:maxLines="1"
+            android:text="April 12, 2013"
+            android:textSize="@dimen/dimen16" />
 
-    <TextView
-        android:id="@+id/mNomCours"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:ellipsize="end"
-        android:maxLines="2"
-        android:text="This is a good Post, I hope it will have 2 lines."
-        android:textIsSelectable="false"
-        android:textSize="@dimen/dimen10" />
+        <TextView
+            android:id="@+id/mNomClasse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="This is a good Post, I hope it will have 2 lines."
+            android:textIsSelectable="false"
+            android:textSize="@dimen/dimen10" />
+    </LinearLayout>
+
     <ImageView
         android:layout_width="25dp"
         android:layout_height="25dp"

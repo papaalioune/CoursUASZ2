@@ -78,6 +78,7 @@ public class Constantes {
 
     public static final class ValeurRetourOperationsGEDT {
         public static final int VALEUR_SUCCESS = 200;
+        public static final int VALEUR_CREATED = 201;
         public static final int VALEUR_ECHEC = 400;
         public static final int VALEUR_NO_DATA = 204;
         public static final int VALEUR_ECHEC_TRAITEMENT = 400;

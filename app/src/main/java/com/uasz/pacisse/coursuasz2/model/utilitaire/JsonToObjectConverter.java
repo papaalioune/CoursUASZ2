@@ -62,12 +62,22 @@ public class JsonToObjectConverter {
 
                 NiveauDeClasse niveau = new NiveauDeClasse(niveauDeLaClasse.getString(Constantes.NomsParametresGEDT.PRAM_CODE_NIVEAU), niveauDeLaClasse.getString(Constantes.NomsParametresGEDT.PRAM_NOM_NIVEAU));
 
-                classesList.add(new Classe(niveau, nomDeLaClasse));
+                classesList.add(new Classe(niveau, nomDeLaClasse, codeDeLaClasse));
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
         return classesList;
+    }
+
+    public Classe getClasseFromCodeAndNiveau(String codeClasse, String codeNiveauClasse, List<Classe> classesList){
+        for (int i = 0 ; i < classesList.size() ; i++){
+            if (codeClasse.equals(classesList.get(i).getCodeClasse()) &&
+                codeNiveauClasse.equals(classesList.get(i).getNiveauClasse().getCode_niveau())){
+                return classesList.get(i);
+            }
+        }
+        return null;
     }
 }

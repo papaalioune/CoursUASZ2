@@ -118,5 +118,17 @@ public class Cours implements Serializable {
         return Objects.hash(getJour(), getHeureDebut(), getHeureFin(), getSalle(), getEnseignant(), getClasse(), getMatiere());
     }
 
-
+    @Override
+    public String toString() {
+        return "Cours{" +
+                "jour=" + jour +
+                ", HeureDebut=" + HeureDebut +
+                ", HeureFin=" + HeureFin +
+                ", salle=" + salle +
+                ", enseignant=" + enseignant +
+                ", classe=" + classe +
+                ", matiere=" + matiere +
+                ", typeDeCours=" + typeDeCours +
+                '}';
+    }
 }

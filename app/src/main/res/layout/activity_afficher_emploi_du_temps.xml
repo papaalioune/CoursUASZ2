@@ -1,9 +1,435 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".controler.AfficherEmploiDuTempsActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/dimen5"
+        android:layout_marginLeft="@dimen/dimen5"
+        android:orientation="vertical">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="@dimen/dimen5"
+            android:background="@color/teal_700">
+
+            <TableRow
+                android:id="@+id/emploi_titre_jours"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                >
+
+                <TextView
+                    android:id="@+id/emploi_colonne_heure"
+                    android:text=""
+                    style="@style/EnTeteEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi"
+                    android:text="LUN"
+                    style="@style/EnTeteEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi"
+                    android:text="MAR"
+                    style="@style/EnTeteEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi"
+                    android:text="MER"
+                    style="@style/EnTeteEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi"
+                    android:text="JEU"
+                    style="@style/EnTeteEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi"
+                    android:text="VEN"
+                    style="@style/EnTeteEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi"
+                    android:text="SAM"
+                    style="@style/EnTeteEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_8h_9h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_8h_9h"
+                    android:text="8h_9h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_8h_9h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_8h_9h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_8h_9h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_8h_9h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_8h_9h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_8h_9h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_9h_10h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_9h_10h"
+                    android:text="9h_10h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_9h_10h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_9h_10h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_9h_10h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_9h_10h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_9h_10h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_9h_10h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_10h_11h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_10h_11h"
+                    android:text="10h_11h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_10h_11h"
+                    android:text=""
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_10h_11h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_10h_11h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_10h_11h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_10h_11h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_10h_11h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/emploi_11h_12h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_11h_12h"
+                    android:text="11h_12h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_11h_12h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_11h_12h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_11h_12h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_11h_12h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_11h_12h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_11h_12h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_12h_13h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_12h_13h"
+                    android:text="12h_13h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_12h_13h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_12h_13h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_12h_13h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_12h_13h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_12h_13h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_12h_13h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_15h_16h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_15h_16h"
+                    android:text="15h_16h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_15h_16h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_15h_16h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_15h_16h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_15h_16h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_15h_16h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_15h_16h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_16h_17h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_16h_17h"
+                    android:text="16h_17h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_16h_17h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_16h_17h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_16h_17h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_16h_17h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_16h_17h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_16h_17h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_17h_18h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_17h_18h"
+                    android:text="17h_18h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_17h_18h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_17h_18h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_17h_18h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_17h_18h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_17h_18h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_17h_18h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_18h_19h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_18h_19h"
+                    android:text="18h_19h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_18h_19h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_18h_19h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_18h_19h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_18h_19h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_18h_19h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_18h_19h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/emploi_19h_20h"
+                style="@style/LignesEmploiDuTemps">
+
+                <TextView
+                    android:id="@+id/emploi_colonne_19h_20h"
+                    android:text="19h_20h"
+                    style="@style/ColonneHeuresEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_lundi_19h_20h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mardi_19h_20h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_mercredi_19h_20h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_jeudi_19h_20h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_vendredi_19h_20h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+                <TextView
+                    android:id="@+id/emploi_samedi_19h_20h"
+                    style="@style/CelluleEmploiDuTemps"/>
+
+            </TableRow>
+
+        </TableLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/teal_700"
+            android:layout_marginBottom="@dimen/dimen5"/>
+
+        <TextView
+            android:id="@+id/details_cours_selectionne"
+            android:text="Cours de : "
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:background="@color/teal_700"
+            android:gravity="center_vertical"/>
+
+    </LinearLayout>
+</ScrollView>
+

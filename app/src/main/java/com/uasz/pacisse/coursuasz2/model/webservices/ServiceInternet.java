@@ -72,6 +72,7 @@ public class ServiceInternet {
                 urlConnection.getOutputStream().flush();
                 is = urlConnection.getInputStream();
                 retoursOperationsGEDT.setValeurRetourOperationsGEDT(urlConnection.getResponseCode());
+                System.out.println("urlConnection.getResponseCode() = " + urlConnection.getResponseCode());
             }
 
             BufferedReader reader = new BufferedReader(new InputStreamReader(is));

@@ -31,7 +31,10 @@ import com.uasz.pacisse.coursuasz2.model.webservices.OperationsGEDT;
 import com.uasz.pacisse.coursuasz2.model.webservices.RetoursOperationsGEDT;
 import com.uasz.pacisse.coursuasz2.model.utilitaire.JsonToObjectConverter;
 
+import java.io.Serializable;
+import java.text.ParseException;
 import java.util.Calendar;
+import java.util.List;
 
 public class CreerCompteActivity extends AppCompatActivity implements View.OnClickListener{
     /* *** Références des éléments graphiques de l'écran d'accueil dans l'activité *** */
@@ -52,13 +55,12 @@ public class CreerCompteActivity extends AppCompatActivity implements View.OnCli
     //************ Pour la date : calendrier ***********//
     private DatePickerDialog datePickerDialog;
 
-    Etudiant etudiant ;
+    List<Classe> classeList;
 
-    //
     private OperationsGEDT mOperationsGEDT;
     private RetoursOperationsGEDT mRetoursOperationsGEDT;
-
     private JsonToObjectConverter mJsonToObjectConverter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,12 +68,6 @@ public class CreerCompteActivity extends AppCompatActivity implements View.OnCli
 
         mOperationsGEDT = new OperationsGEDT();
         mJsonToObjectConverter = new JsonToObjectConverter();
-
-        mRetoursOperationsGEDT = mOperationsGEDT.recuperer_liste_classes(CreerCompteActivity.this);
-        System.out.println(mRetoursOperationsGEDT.getDataAsArray());
-        System.out.println(mJsonToObjectConverter.liste_classes_converter(mRetoursOperationsGEDT.getDataAsArray()));
-
-        etudiant = new Etudiant();
 
         initView();
 
@@ -130,6 +126,9 @@ public class CreerCompteActivity extends AppCompatActivity implements View.OnCli
 
     //*********** Dialog des classes *******************//
     public void afficherDialogListeClasses(Activity activity){
+        mRetoursOperationsGEDT  = mOperationsGEDT.recuperer_liste_classes(CreerCompteActivity.this);
+        classeList = mJsonToObjectConverter.liste_classes_converter(mRetoursOperationsGEDT.getDataAsArray());
+
         final Dialog dialogListeClasses = new Dialog(activity);
         // dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialogListeClasses.setCancelable(false);
@@ -139,23 +138,52 @@ public class CreerCompteActivity extends AppCompatActivity implements View.OnCli
         cancelButton.setOnClickListener(v -> dialogListeClasses.dismiss());
 
         ListView listClassesView = dialogListeClasses.findViewById(R.id.dialog_list_classesView);
-        DialogListeClassesAdapter adapter = new DialogListeClassesAdapter(this, mJsonToObjectConverter.liste_classes_converter(mRetoursOperationsGEDT.getDataAsArray()));
+        DialogListeClassesAdapter adapter = new DialogListeClassesAdapter(this, classeList);
         listClassesView.setAdapter(adapter);
 
         listClassesView.setOnItemClickListener((parent, view, position, id) -> {
             Classe classe = mJsonToObjectConverter.liste_classes_converter(mRetoursOperationsGEDT.getDataAsArray()).get(position);
-            //mClasseInput.setText(classe.getNomClasse() + " - " + classe.getNiveauClasse());
-            mClasseInput.setText(classe.getNomClasse());
+            mClasseInput.setText(classe.getNiveauClasse().getCode_niveau() + " - " + classe.getCodeClasse());
             dialogListeClasses.dismiss();
         });
         dialogListeClasses.show();
+    }
+
+    private Etudiant recupererFormulaireEtInstancierEtudiant(){
+        Etudiant etudiant = new Etudiant();
+        etudiant.setNom(mNomInput.getText().toString());
+        etudiant.setPrenom(mPrenomInput.getText().toString());
+        etudiant.setReference(mReferenceInput.getText().toString());
+        try {
+            etudiant.setDateNaissance(DataConverter.toDate(mDateNaissanceInput.getText().toString(), DataConverter.DateType.SHORT));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        etudiant.setEmail(mEmailConnexionInput.getText().toString());
+        etudiant.setPassword(mMotDePassConnexionInput.getText().toString());
+        String codeClasseSelectionne = mClasseInput.getText().toString().split(" - ")[1];
+        String codeNiveauClasseSelectionne = mClasseInput.getText().toString().split(" - ")[0];
+        etudiant.setClasse(mJsonToObjectConverter.getClasseFromCodeAndNiveau(codeClasseSelectionne, codeNiveauClasseSelectionne, classeList));
+        /*Gestion du sexe*/
+        // get selected radio button from radioGroup
+        int selectedId = mSexe.getCheckedRadioButtonId();
+        // find the radiobutton by returned id
+        RadioButton selectedRadioButton = findViewById(selectedId);
+        etudiant.setSexe(selectedRadioButton.getText().toString());
+        return etudiant;
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.activity_creer_compte_classeInput:
-                afficherDialogListeClasses(CreerCompteActivity.this);
+                if (mOperationsGEDT.serviceInternet.connexionDisponible(getApplicationContext())) {
+                    afficherDialogListeClasses(CreerCompteActivity.this);
+                }else{
+                    Toast.makeText(CreerCompteActivity.this,
+                            R.string.erreur_internet_off,
+                            Toast.LENGTH_LONG).show();
+                }
                 break;
             case R.id.activity_creer_compte_date_naissanceInput:
                 datePickerDialog.show();
@@ -165,8 +193,22 @@ public class CreerCompteActivity extends AppCompatActivity implements View.OnCli
                 startActivity(accueil);
             case R.id.activity_creer_compte_Button:
                 if (awesomeValidation.validate()) {
+                    //Remise à zéro de mOperationsGEDT
+                    mOperationsGEDT = new OperationsGEDT();
                     if (mOperationsGEDT.serviceInternet.connexionDisponible(getApplicationContext())) {
-
+                        Etudiant etudiant = recupererFormulaireEtInstancierEtudiant();
+                        mRetoursOperationsGEDT = mOperationsGEDT.ajouterEtudiant(etudiant);
+                        if (mRetoursOperationsGEDT.getValeurRetourOperationsGEDT() ==  Constantes.ValeurRetourOperationsGEDT.VALEUR_CREATED){
+                            Toast.makeText(CreerCompteActivity.this,
+                                    "Compte créé avec succès",
+                                    Toast.LENGTH_LONG).show();
+                            Intent mainActivity = new Intent(CreerCompteActivity.this, MainActivity.class);
+                            startActivity(mainActivity);
+                        }else{
+                            Toast.makeText(CreerCompteActivity.this,
+                                    "Un problème est survenu. Le compte n'a pas pu être créé",
+                                    Toast.LENGTH_LONG).show();
+                        }
                     } else{
                         Toast.makeText(CreerCompteActivity.this,
                                 R.string.erreur_internet_off,

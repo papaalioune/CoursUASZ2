@@ -32,8 +32,8 @@ public class DialogListeClassesAdapter extends ArrayAdapter<Classe> {
         DialogListeClassesAdapter.ClasseViewHolder viewHolder = (DialogListeClassesAdapter.ClasseViewHolder) convertView.getTag();
         if(viewHolder == null){
             viewHolder = new ClasseViewHolder();
-            viewHolder.niveauClasse = convertView.findViewById(R.id.mNiveauCours);
-            viewHolder.nomClasse = convertView.findViewById(R.id.mNomCours);
+            viewHolder.niveauClasse = convertView.findViewById(R.id.mNiveauClasse);
+            viewHolder.nomClasse = convertView.findViewById(R.id.mNomClasse);
 
             convertView.setTag(viewHolder);
         }

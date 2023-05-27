@@ -9,6 +9,7 @@ import java.util.Objects;
 public class Classe implements Serializable {
     private NiveauDeClasse niveauClasse;
     private String nomClasse;
+    private String codeClasse;
 
     public Classe() {
     }
@@ -16,6 +17,20 @@ public class Classe implements Serializable {
     public Classe(NiveauDeClasse niveauClasse, String nomClasse) {
         this.niveauClasse = niveauClasse;
         this.nomClasse = nomClasse;
+    }
+
+    public Classe(NiveauDeClasse niveauClasse, String nomClasse, String codeClasse) {
+        this.niveauClasse = niveauClasse;
+        this.nomClasse = nomClasse;
+        this.codeClasse = codeClasse;
+    }
+
+    public String getCodeClasse() {
+        return codeClasse;
+    }
+
+    public void setCodeClasse(String codeClasse) {
+        this.codeClasse = codeClasse;
     }
 
     public NiveauDeClasse getNiveauClasse() {

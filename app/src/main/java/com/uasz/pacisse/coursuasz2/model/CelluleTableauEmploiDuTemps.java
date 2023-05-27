@@ -3,6 +3,8 @@ package com.uasz.pacisse.coursuasz2.model;
 import android.graphics.Color;
 import android.widget.TextView;
 
+import com.uasz.pacisse.coursuasz2.R;
+
 /**
  * Créé par Dr Cissé, le 16/03/2023 à 10:15
  */
@@ -96,7 +98,9 @@ public class CelluleTableauEmploiDuTemps {
 
     public void setCours(Cours cours) {
         this.cours = cours;
-        this.getAffichage().setText(cours.getMatiere().getLibelleMatiere().substring(0, 4));
+        //this.getAffichage().setText(cours.getMatiere().getCodeMatiere().substring(0, 8));
+        this.getAffichage().setText(cours.getMatiere().getCodeMatiere());
+        this.getAffichage().setTextSize(7);
         this.getAffichage().setBackgroundColor(Color.parseColor("#FFF895"));
         this.vide = false;
     }

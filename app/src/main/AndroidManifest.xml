@@ -17,7 +17,8 @@
         tools:targetApi="31">
         <activity
             android:name=".controler.CreerCompteActivity"
-            android:exported="false">
+            android:exported="false"
+            android:theme="@style/Theme.CoursUASZ2.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
@@ -31,7 +32,8 @@
         </activity>
         <activity
             android:name=".controler.MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.CoursUASZ2.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

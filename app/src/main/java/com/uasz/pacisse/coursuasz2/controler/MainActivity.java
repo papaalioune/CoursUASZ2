@@ -2,6 +2,7 @@ package com.uasz.pacisse.coursuasz2.controler;
 
 import static com.basgeekball.awesomevalidation.ValidationStyle.COLORATION;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -95,6 +96,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 break;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        new AlertDialog.Builder(this)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .setTitle(R.string.texte_exit)
+                .setMessage(R.string.texte_confirmer_exit)
+                .setPositiveButton(R.string.texte_oui, (dialog, which) -> {
+                    finishAffinity();
+                    System.exit(0);
+                })
+                .setNegativeButton(R.string.texte_non, null)
+                .show();
     }
 
     private void addValidationToViews() {

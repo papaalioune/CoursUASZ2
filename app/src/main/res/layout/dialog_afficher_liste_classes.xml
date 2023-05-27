@@ -3,14 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
-        android:id="@+id/dialog_afficher_beneficiaireToolbar"
         android:layout_width="match_parent"
         android:layout_height="49dp"
         android:gravity="center_horizontal"
         android:layout_alignParentTop="true"
         android:padding="16dp"
         android:background="@color/uasz"
-        android:text="Choix d'un bénéficiaire"
+        android:text="Choix d'une classe"
         android:textColor="@color/white"
         android:textSize="@dimen/dimen16" />
     <ListView

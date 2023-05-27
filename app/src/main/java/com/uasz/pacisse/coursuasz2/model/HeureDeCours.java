@@ -36,10 +36,16 @@ public class HeureDeCours implements Serializable {
 
     @Override
     public String toString() {
-        return "HeureDeCours{" +
-                "heure=" + heure +
-                ", minute=" + minute +
-                '}';
+        String h, m;
+        if (minute == 0)
+            m = "00";
+        else
+            m = String.valueOf(minute);
+        if (heure < 10)
+            h = "0" + heure;
+        else
+            h = String.valueOf(heure);
+        return h + "H" + m;
     }
 
     @Override
